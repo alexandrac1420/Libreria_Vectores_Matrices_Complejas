@@ -61,36 +61,3 @@ def mult_matrix(matrix1,matrix2):
         return np.dot(matrix1,matrix2)
     else:
         raise Exception ("Error: El numero de columnas de la matriz 1 no es igual al numero de columnas de la matriz 2")
-"""
-v1 = [complex(3.5,2.35), complex(1.78,-8.25)]
-v2 = [complex(-1.8,2.5), complex(2.78,3.2)]
-v3 = [complex(-3,-2.1),complex(1.5,-8.0)]
-
-print("                Suma de dos vectore             ")
-print(sum_vec_complex(v2,v3))
-print("                Inversa de un vector                      ")
-print(inv_vec_complex(v1))
-print("        Multiplicacion por un escalar con un vector                     ")
-print(mult_esc_vec(2,v1))
-
-m1 = [[complex(3.5, 2.8), complex(1.5, -8.2)], [complex(1.5, 2.8), complex(2.7, 3.25)]]
-m2 = [[complex(-1.25, 5.15), complex(1.2, 3.70)], [complex(1.2, 2.78), complex(1.7, -1.78)]]
-m3 = [[complex(8.7, 2.1), complex(1.1, -8.2)], [complex(1.7, -5.5), complex(-2, -3)]]
-
-print("                Suma de matrices                        ")
-print(sum_matrix(m1,m2))
-print("              Inversa de una matriz                ")
-print(inv_matrix(m1))
-print("            Multiplicacion de un escalar con una matriz                 ")
-print(mult_esc_vec(2,m1))
-print("               Transpuesta de matriz              ")
-print(trans_matrix(m1))
-print("                 Conjungada de una matriz            ")
-print(conj_matrix(m1))
-print("               Adjunta de una matriz              ")
-print(adj_matrix(m1))
-print("                 Multiplicar dos matrices            ")
-result =mult_matrix(m1,m2)
-print(result)
-print("          Accion de una matriz sobre un vector                   ")
-print(act_matrix_vec(m1,v1))"""
