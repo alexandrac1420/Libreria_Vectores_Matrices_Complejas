@@ -127,6 +127,24 @@ class TestLibMatrixComplex(unittest.TestCase):
         self.assertAlmostEqual(prueba_2[1][0], complex(-2.298,14.33))
         self.assertAlmostEqual(prueba_2[1][1], complex(15.376,-8.322))
 
+    def test_prod_int_vec(self):
+        prueba_1 = lb.prod_int_vec(self.v1,self.v2)
+        self.assertAlmostEqual(prueba_1, complex(-21.8766, 41.611))
+        prueba_2 = lb.prod_int_vec(self.v2,self.v3)
+        self.assertAlmostEqual(prueba_2, complex(-21.28, -15.76))
+
+    def test_norm_vec(self):
+        prueba_1 = lb.norm_vec(self.v1)
+        self.assertAlmostEqual(prueba_1, 9.43416133)
+        prueba_2 = lb.norm_vec(self.v2)
+        self.assertAlmostEqual(prueba_2, 5.240076335)
+
+    def test_dist_vec(self):
+        prueba_1 = lb.dist_vec(self.v1, self.v2)
+        self.assertAlmostEqual(prueba_1, 12.65760641)
+        prueba_2 = lb.dist_vec(self.v2, self.v3)
+        self.assertAlmostEqual(prueba_2, 12.2343124)
+
 
 if __name__ == '__main__':
     unittest.main()

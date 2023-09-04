@@ -61,3 +61,16 @@ def mult_matrix(matrix1,matrix2):
         return np.dot(matrix1,matrix2)
     else:
         raise Exception ("Error: El numero de columnas de la matriz 1 no es igual al numero de columnas de la matriz 2")
+
+def prod_int_vec(vec1,vec2):
+    return np.vdot(vec1,vec2)
+
+def norm_vec(vec1):
+    return np.linalg.norm(vec1)
+
+def dist_vec(vec1,vec2):
+    sub = np.subtract(vec1,vec2)
+    return norm_vec(sub)
+
+def val_prop_matrix(matrix1):
+    return np.linalg.eig(matrix1)
