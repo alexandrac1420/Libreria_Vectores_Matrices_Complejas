@@ -74,3 +74,21 @@ def dist_vec(vec1,vec2):
 
 def val_prop_matrix(matrix1):
     return np.linalg.eig(matrix1)
+
+def prod_tens_vec(vec1,vec2):
+    return np.outer(vec1,vec2)
+
+def prod_tens_matrix(matrix1, matrix2):
+    return np.kron(matrix1, matrix2)
+
+def hermitian_matrix(matrix1):
+    if np.array_equal(adj_matrix(matrix1),matrix1):
+        return True
+    return False
+
+
+def unit_matrix(matrix1):
+    unit = mult_matrix(adj_matrix(matrix1))
+    if unit == np.eye(matrix1.shape[0]).all():
+        return True
+    return False
