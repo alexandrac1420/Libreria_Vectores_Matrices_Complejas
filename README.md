@@ -60,6 +60,14 @@ A continuación se presenta la sintaxis correcta para el uso de las operaciones 
 * __Adjunta (daga) de una matriz__: adj_matrix(_matriz_)
 * __Producto de dos matrices (de tamaños compatibles)__: mult_matrix(_matriz 1, matriz 2_)
 * __Función para calcular la "acción" de una matriz sobre un vector__: act_matrix_vec(_matriz, vector_)
+* __Producto interno de dos vectores__: prod_int_vec(_vector 1, vector 2_)
+*__Norma de un vector__: norm_vec(_vector_)
+*__Distancia entre dos vectores__: dist_vec(_vector 1, vector 2_)
+*__Valores y vectores propios de una matriz__: val_prop_matrix(_matriz_)
+*__Revisar si una matriz es unitaria__: unit_matrix(_matriz_)
+*__Revisar si una matriz es Hermitiana__: hermitian_matrix(_matriz_)
+*__Producto tensor de dos vectores__: prod_tens_vec(_vector 1, vector 2_)
+*__Producto tensor de dos matrices__: prod_tens_matrix(_matriz 1, matriz 2_)
 
 Tenga en cuenta que es necesario utilizar la representacion de los numeros mencionada anteriormente.
 
