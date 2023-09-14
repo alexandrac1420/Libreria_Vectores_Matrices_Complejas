@@ -11,6 +11,13 @@ Este proyecto consiste en desarrollar un programa que permita realizar operacion
 * Adjunta (daga) de una matriz/vector
 * Producto de dos matrices (de tamaños compatibles)
 * Función para calcular la "acción" de una matriz sobre un vector.
+* Producto interno de dos vectores
+* Norma de un vector
+* Distancia entre dos vectores
+* Valores  y vectores propios de una matriz
+* Revisar si una matriz es unitaria
+* Revisar si una matriz es Hermitiana
+* Producto tensor de dos matrices/vectores
 
 ## ¿Cómo obtener una copia del repositorio?
 ### Pre-requisitos
