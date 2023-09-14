@@ -1,7 +1,7 @@
 import unittest
 import vec_matrix_complex as lb
-
-
+import numpy as np
+import math
 class TestLibMatrixComplex(unittest.TestCase):
     v1 = [complex(3.5, 2.35), complex(1.78, -8.25)]
     v2 = [complex(-1.8, 2.5), complex(2.78, 3.2)]
@@ -31,9 +31,9 @@ class TestLibMatrixComplex(unittest.TestCase):
         self.assertAlmostEqual(prueba_2[0], complex(5.4,-7.5))
         self.assertAlmostEqual(prueba_2[1], complex(-8.34,-9.6))
 
-    m1 = [[complex(3.5,2.8), complex(1.5,-8.2)], [complex(1.5,2.8), complex(2.7,3.25)]]
-    m2 = [[complex(-1.25,5.15), complex(1.2,3.70)], [complex(1.2,2.78), complex(1.7, -1.78)]]
-    m3 = [[complex(8.7,2.1), complex(1.1,-8.2)], [complex(1.7,-5.5), complex(-2,-3)]]
+    m1 = np.array([[complex(3.5,2.8), complex(1.5,-8.2)], [complex(1.5,2.8), complex(2.7,3.25)]])
+    m2 = np.array([[complex(-1.25,5.15), complex(1.2,3.70)], [complex(1.2,2.78), complex(1.7, -1.78)]])
+    m3 = np.array([[complex(8.7,2.1), complex(1.1,-8.2)], [complex(1.7,-5.5), complex(-2,-3)]])
 
     def test_sum_matrix(self):
         prueba_1 = lb.sum_matrix(self.m1, self.m2)
@@ -144,6 +144,69 @@ class TestLibMatrixComplex(unittest.TestCase):
         self.assertAlmostEqual(prueba_1, 12.65760641)
         prueba_2 = lb.dist_vec(self.v2, self.v3)
         self.assertAlmostEqual(prueba_2, 12.2343124)
+
+    def test_prod_tens_vec(self):
+        prueba_1 = lb.prod_tens_vec(self.v1, self.v2)
+        self.assertAlmostEqual(prueba_1[0][0], complex(-12.175,4.52))
+        self.assertAlmostEqual(prueba_1[0][1], complex(2.21,17.733))
+        self.assertAlmostEqual(prueba_1[1][0], complex(17.421,19.3))
+        self.assertAlmostEqual(prueba_1[1][1], complex(31.3484,-17.239))
+        prueba_2 = lb.prod_tens_vec(self.v2, self.v3)
+        self.assertAlmostEqual(prueba_2[0][0], complex(10.65,-3.72))
+        self.assertAlmostEqual(prueba_2[0][1], complex(17.3,18.15))
+        self.assertAlmostEqual(prueba_2[1][0], complex(-1.62,-15.438))
+        self.assertAlmostEqual(prueba_2[1][1], complex(29.77,-17.44))
+
+    def test_prod_tens_matrix(self):
+        prueba_1 = lb.prod_tens_matrix(self.m1, self.m2)
+        self.assertAlmostEqual(prueba_1[0][0], complex(-18.795,14.525))
+        self.assertAlmostEqual(prueba_1[0][1], complex(-6.16,16.31))
+        self.assertAlmostEqual(prueba_1[0][2], complex(40.355,17.975))
+        self.assertAlmostEqual(prueba_1[0][3], complex(32.14,-4.29))
+        self.assertAlmostEqual(prueba_1[1][0], complex(-3.584,13.09))
+        self.assertAlmostEqual(prueba_1[1][1], complex(10.934,-1.47))
+        self.assertAlmostEqual(prueba_1[1][2], complex(24.596,-5.67))
+        self.assertAlmostEqual(prueba_1[1][3], complex(-12.046,-16.61))
+        self.assertAlmostEqual(prueba_1[2][0], complex(-16.295,4.225))
+        self.assertAlmostEqual(prueba_1[2][1], complex(-8.56,8.91))
+        self.assertAlmostEqual(prueba_1[2][2], complex(-20.1125,9.8425))
+        self.assertAlmostEqual(prueba_1[2][3], complex(-8.785,13.89))
+        self.assertAlmostEqual(prueba_1[3][0], complex(-5.984,7.53))
+        self.assertAlmostEqual(prueba_1[3][1], complex(7.534,2.09))
+        self.assertAlmostEqual(prueba_1[3][2], complex(-5.795,11.406))
+        self.assertAlmostEqual(prueba_1[3][3], complex(10.375,0.719))
+
+        prueba_2 = lb.prod_tens_matrix(self.m2, self.m3)
+        self.assertAlmostEqual(prueba_2[0][0], complex(-21.69,42.18))
+        self.assertAlmostEqual(prueba_2[0][1], complex(40.855,15.915))
+        self.assertAlmostEqual(prueba_2[0][2], complex(2.67,34.71))
+        self.assertAlmostEqual(prueba_2[0][3], complex(31.66,-5.77))
+        self.assertAlmostEqual(prueba_2[1][0], complex(26.2,15.63))
+        self.assertAlmostEqual(prueba_2[1][1], complex(17.95,-6.55))
+        self.assertAlmostEqual(prueba_2[1][2], complex(22.39,-0.31))
+        self.assertAlmostEqual(prueba_2[1][3], complex(8.7,-11))
+        self.assertAlmostEqual(prueba_2[2][0], complex(4.602,26.706))
+        self.assertAlmostEqual(prueba_2[2][1], complex(24.116,-6.782))
+        self.assertAlmostEqual(prueba_2[2][2], complex(18.528,-11.916))
+        self.assertAlmostEqual(prueba_2[2][3], complex(-12.726,-15.898))
+        self.assertAlmostEqual(prueba_2[3][0], complex(17.33,-1.874))
+        self.assertAlmostEqual(prueba_2[3][1], complex(5.94,-9.16))
+        self.assertAlmostEqual(prueba_2[3][2], complex(-6.9,-12.376))
+        self.assertAlmostEqual(prueba_2[3][3], complex(-8.74,-1.54))
+
+    m4 = np.array([[(complex(0,1)/math.sqrt(2)), (complex(0,-1)/math.sqrt(2))], [(complex(0,1)/math.sqrt(2)), (complex(0,1)/math.sqrt(2))]])
+    m5 = np.array([[(complex(1,0)/math.sqrt(2)),(complex(1,0)/math.sqrt(2))],[(complex(1,0)/math.sqrt(2)),(complex(-1,0)/math.sqrt(2))]])
+    def test_unit_matrix(self):
+        prueba_1 = lb.unit_matrix(self.m4)
+        self.assertEqual(prueba_1,True)
+        prueba_2 = lb.unit_matrix(self.m1)
+        self.assertEqual(prueba_2,False)
+
+    def test_hermitian_matrix(self):
+        prueba_1 = lb.hermitian_matrix(self.m1)
+        self.assertEqual(prueba_1,False)
+        prueba_2 = lb.hermitian_matrix(self.m5)
+        self.assertEqual(prueba_2,True)
 
 
 if __name__ == '__main__':

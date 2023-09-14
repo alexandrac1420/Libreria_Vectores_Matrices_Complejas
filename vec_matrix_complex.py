@@ -86,9 +86,8 @@ def hermitian_matrix(matrix1):
         return True
     return False
 
-
 def unit_matrix(matrix1):
-    unit = mult_matrix(adj_matrix(matrix1))
-    if unit == np.eye(matrix1.shape[0]).all():
+    unit = mult_matrix(adj_matrix(matrix1), matrix1)
+    if np.allclose(unit, np.eye(matrix1.shape[0], dtype=complex)):
         return True
     return False
